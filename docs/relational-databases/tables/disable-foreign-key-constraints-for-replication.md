@@ -63,4 +63,13 @@ monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-s
   
  For more information, see [ALTER TABLE &#40;Transact-SQL&#41;](../../t-sql/statements/alter-table-transact-sql.md).  
   
-###  <a name="TsqlExample"></a>  
+###  <a name="TsqlExample"></a> 
+
+## Examples  
+  
+### A. Create a Foreign Key constraint with NOT FOR REPLICATION Option
+The following example adds a Foreign Key constraint with NOT FOR REPLICATION option to an existing table.
+```sql
+ALTER TABLE [audit].[Audit] WITH NOCHECK
+    ADD CONSTRAINT [FK_Audit_AuditEvent] FOREIGN KEY ([AuditEventID]) REFERENCES [audit].[AuditEvent] ([AuditEventID]) NOT FOR REPLICATION;
+```
